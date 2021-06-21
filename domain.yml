@@ -76,8 +76,6 @@ responses:
   - text: Bye
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
-  utter_name:
-  - text: My name is Innovate Yourself.
   utter_ask_servername:
   - text: What is the device name?
   utter_ask_ticketname:

@@ -13,7 +13,6 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.events import SlotSet, EventType,  AllSlotsReset
 from rasa_sdk.executor import CollectingDispatcher
 
-current_command=" "
 
 def get_latest_event(events):
     latest_actions = []
@@ -30,7 +29,6 @@ class ValidateControlForm(Action):
     def name(self) -> Text:
         return "action_help"
 
-    current_command = "show_control"
     def run(
         self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
@@ -63,7 +61,6 @@ class ValidateControlForm(Action):
     def name(self) -> Text:
         return "user_servername_form"
 
-    current_command = "show_control"
     def run(
         self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
@@ -84,7 +81,7 @@ class ValidateControlForm(Action):
 class ValidateInterfaceForm(Action):
     def name(self) -> Text:
         return "user_servername_interface_form"
-    current_command = "show_interface"
+
     def run(
         self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
@@ -105,8 +102,6 @@ class ValidateInterfaceForm(Action):
     def name(self) -> Text:
         return "user_servername_wan_form"
 
-    current_command = "show_wan"
-
     def run(
         self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
@@ -126,8 +121,6 @@ class ValidateInterfaceForm(Action):
 class ValidateInterfaceForm(Action):
     def name(self) -> Text:
         return "user_servername_ticket_form"
-
-    current_command = "ticket_open"
 
     def run(
         self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
@@ -182,9 +175,6 @@ class ActionSubmit(Action):
 
         dispatcher.utter_message(
             json_message={"response": tracker.latest_message['text'],
-                            # "time sent": now.strftime("%H:%M:%S"),
-                            # "date sent": now.strftime("%d/%m/%Y"),
-                            # "intent" : list(reversed(tracker.events))[4],
                             "intent" : get_latest_event(tracker.events),
                             "confidence" : tracker.latest_message['intent'].get('confidence'),
                             "servername" : tracker.get_slot("servername"),

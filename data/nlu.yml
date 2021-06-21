@@ -84,14 +84,6 @@ nlu:
     - so saad
     - so sad
 
-# - intent: tell_name
-#   examples: |
-#     - what is your name?
-#     - tell me your name
-#     - what others call you
-#     - what should i call you?
-
-
 - intent: bot_challenge
   examples: |
     - are you a bot?
@@ -99,31 +91,13 @@ nlu:
     - am I talking to a bot?
     - am I talking to a human?
 
-# - intent: my_name
-#   examples: |
-#     - my name is [ashish]{"entity":"name","value":"ashish"}
-#     - my name is [rahul]{"entity":"name","value":"rahul"}
-#     - my name is [apneet]{"entity":"name","value":"apneet"}
-#     - [ashish]{"entity":"name","value":"ashish"} is my name
-#     - [ashish]{"entity":"name","value":"ashish"} this side
-#     - people call me [ashish]{"entity":"name","value":"ashish"}
-
-# - intent: mobile_number
-#   examples: |
-#     - my number is [8209829808]{"entity":"number"}
-#     - [8209829808]{"entity":"number"}
-#     - [8209829808]{"entity":"number"} is my number
-#     - my nobile number is [8209829808]{"entity":"number"}
-
-
-
 - intent: out_of_scope
   examples: |
     - I want to order food
     - What is 2 + 2?
     - Who's the US President?
 
-
+# variables/slots ---------------------------------------------
 - intent: show_control_server
   examples: |
     - the server is [vedge-1] {"entity":"servername"}
