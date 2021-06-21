@@ -1,0 +1,132 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- affirm:
+    use_entities: true
+- deny:
+    use_entities: true
+- mood_great:
+    use_entities: true
+- mood_unhappy:
+    use_entities: true
+- bot_challenge:
+    use_entities: true
+- tell_name:
+    use_entities: true
+- out_of_scope:
+    use_entities: true
+- nlu_fallback:
+    use_entities: true
+- show_control:
+    use_entities: true
+- open_ticket:
+    use_entities: true
+- show_control_server:
+    use_entities:
+    - servername
+- show_interface:
+    use_entities: true
+- show_wan:
+    use_entities: true
+- show_ticket_server:
+    use_entities:
+    - ticketname
+- show_help:
+    use_entities: true
+- show_system:
+    use_entities: true
+entities:
+- servername
+- ticketname
+slots:
+  requested_slot:
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  servername:
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  ticketname:
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+responses:
+  utter_greet:
+  - text: Hey! How are you?
+  utter_cheer_up:
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: 'Here is something to cheer you up:'
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_name:
+  - text: My name is Innovate Yourself.
+  utter_ask_servername:
+  - text: What is the device name?
+  utter_ask_ticketname:
+  - text: What is the ticket name?
+  utter_ask_hostname:
+  - text: What is the host name?
+  utter_ask_name:
+  - text: What is your name?
+  utter_ask_number:
+  - text: What is your mobile number?
+  utter_thanks:
+  - text: Thanks for providing the values.
+  utter_details_thanks:
+  - text: |-
+      Thanks for providing the given details 
+      servername: {servername}
+      ticketname: {ticketname}
+  utter_out_of_scope:
+  - text: Sorry, I didn't get what you said. Please rephrase what you said.
+actions:
+- action_submit
+- action_help
+forms:
+  user_servername_form:
+    required_slots:
+      servername:
+      - entity: servername
+        type: from_entity
+  user_servername_interface_form:
+    required_slots:
+      servername:
+      - entity: servername
+        type: from_entity
+  user_servername_wan_form:
+    required_slots:
+      servername:
+      - entity: servername
+        type: from_entity
+  user_servername_ticket_form:
+    required_slots:
+      servername:
+      - entity: servername
+        type: from_entity
+      ticketname:
+      - entity: ticketname
+        type: from_entity
+  user_system_form:
+    required_slots:
+      servername:
+      - entity: servername
+        type: from_entity
+e2e_actions: []

@@ -1,0 +1,208 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+# - intent: tell_name
+#   examples: |
+#     - what is your name?
+#     - tell me your name
+#     - what others call you
+#     - what should i call you?
+
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+# - intent: my_name
+#   examples: |
+#     - my name is [ashish]{"entity":"name","value":"ashish"}
+#     - my name is [rahul]{"entity":"name","value":"rahul"}
+#     - my name is [apneet]{"entity":"name","value":"apneet"}
+#     - [ashish]{"entity":"name","value":"ashish"} is my name
+#     - [ashish]{"entity":"name","value":"ashish"} this side
+#     - people call me [ashish]{"entity":"name","value":"ashish"}
+
+# - intent: mobile_number
+#   examples: |
+#     - my number is [8209829808]{"entity":"number"}
+#     - [8209829808]{"entity":"number"}
+#     - [8209829808]{"entity":"number"} is my number
+#     - my nobile number is [8209829808]{"entity":"number"}
+
+
+
+- intent: out_of_scope
+  examples: |
+    - I want to order food
+    - What is 2 + 2?
+    - Who's the US President?
+
+
+- intent: show_control_server
+  examples: |
+    - the server is [vedge-1] {"entity":"servername"}
+    - my server is [vedge-1]{"entity":"servername"}
+    - [vedge-1]{"entity":"servername"}
+    - [vedge-1]{"entity":"servername"} is my server
+    - my server number is [vedge-1]{"entity":"servername"}
+
+- intent: show_ticket_server
+  examples: |
+    - the ticket number is [DE42423] {"entity":"ticketname"}
+    - my ticket is [DE42423] {"entity":"ticketname"}
+    - [DE42423] {"entity":"ticketname"}
+    - my number is [8209829808]{"entity":"ticketname"}
+    - [8209829808]{"entity":"ticketname"}
+    - [8209829808]{"entity":"ticketname"} is my number
+    - my nobile number is [8209829808]{"entity":"ticketname"}
+
+
+
+# show_control-------------------------------------------------
+
+- intent: show_control
+  examples: |
+    - show me the control
+    - what is the control stats?
+    - what is the controler going to do?
+    - display the controler
+    - is there a controler?
+    - show me the control panel
+
+# show_interface ----------------------------------------------
+- intent: show_interface
+  examples: |
+    - show me the interface
+    - display the interface
+    - how can I see the interface?
+    - what is the interface looks like?
+    - what are the interface stats
+
+# show_wan -----------------------------------------------------
+- intent: show_wan
+  examples: |
+    - show me the wan
+    - what is the wan on?
+    - what are the options for the wan?
+    - show me the link to the wan
+    - what is the wan
+    - what is the current wan?
+    - wan me
+
+# ticket_open ---------------------------------------------------
+
+- intent: open_ticket
+  examples: |
+    - please open a ticket 
+    - open a ticket 
+    - create a ticket for this issue 
+    - if there is a problem please open a ticket 
+    - generate a ticket 
+    - can you open a ticket?
+
+# show_help -----------------------------------------------------
+- intent: show_help
+  examples: |
+    - can you help me
+    - show me the help options
+    - help
+    - i need some help
+
+# show_system ----------------------------------------------------
+- intent: show_system
+  examples: |
+    - can you show me the system?
+    - what is the system is on
+    - show me system
+    - What is the status of the system
+    - is the system online?
+    - is the system offline
+    - display the system to me
+    - display the server
+    - show me my account

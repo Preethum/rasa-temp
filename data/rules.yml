@@ -1,0 +1,129 @@
+version: "2.0"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+
+# show_control-------------------------------------------------
+- rule: Activate form _servername
+  steps:
+  - intent: show_control
+  # - action: utter_ask_servername
+  - action: user_servername_form
+  - active_loop: user_servername_form
+
+- rule: Submit form  _servername
+  condition:
+  # Condition that form is active.
+  - active_loop: user_servername_form
+  steps:
+  # Form is deactivated
+  - action: user_servername_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: action_submit
+
+# show_interface----------------------------------------------
+
+- rule: Activate form show_interface_server
+  steps:
+  - intent: show_interface
+  # - action: utter_ask_servername
+  - action: user_servername_interface_form
+  - active_loop: user_servername_interface_form
+
+- rule: Submit formshow_interface_server
+  condition:
+  # Condition that form is active.
+  - active_loop: user_servername_interface_form
+  steps:
+  # Form is deactivated
+  - action: user_servername_interface_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: action_submit
+
+# show_wan-----------------------------------------------------
+- rule: Activate form show_wan_server
+  steps:
+  - intent: show_wan
+  # - action: utter_ask_servername
+  - action: user_servername_wan_form
+  - active_loop: user_servername_wan_form
+
+- rule: Submit formshow_wan_server
+  condition:
+  # Condition that form is active.
+  - active_loop: user_servername_wan_form
+  steps:
+  # Form is deactivated
+  - action: user_servername_wan_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: action_submit
+
+# ticket_open ---------------------------------------------------
+- rule: Activate form show_ticket_server
+  steps:
+  - intent: open_ticket
+  # - action: utter_ask_servername
+  - action: user_servername_ticket_form
+
+  - active_loop: user_servername_ticket_form
+
+
+- rule: Submit formshow_ticet_server
+  condition:
+  # Condition that form is active.
+  - active_loop: user_servername_ticket_form
+  steps:
+  # Form is deactivated
+  - action: user_servername_ticket_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: action_submit
+
+# show_system -----------------------------------------------------------------
+
+- rule: Activate form server_form
+  steps:
+  - intent: show_system
+  # - action: utter_ask_servername
+  - action: user_system_form
+  - active_loop: user_system_form
+
+- rule: Submit server_form
+  condition:
+  # Condition that form is active.
+  - active_loop: user_system_form
+  steps:
+  # Form is deactivated
+  - action: user_system_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: action_submit
+
+  
+- rule: out-of-scope
+  steps:
+  - intent: nlu_fallback
+  - action: utter_out_of_scope

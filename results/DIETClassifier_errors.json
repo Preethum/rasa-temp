@@ -1,0 +1,16 @@
+[
+  {
+    "text": "the server is [vedge-1] {\"entity\":\"servername\"}",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "servername",
+        "start": 15,
+        "end": 22,
+        "confidence_entity": 0.8128281831741333,
+        "value": "vedge-1",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  }
+]
